@@ -6,10 +6,10 @@ cur = con.cursor()
 
 print(cur.connection == con)
 
-#cur.execute('''CREATE TABLE test (Id INT, Data TEXT)''')
-
 cur.execute('''CREATE TABLE person (
-               Id INT NOT NULL PRIMARY KEY,
+               # Constrain for "Id" has to be "INTEGER PRIMARY KEY"
+               # to result in auto-increment column
+               Id INTEGER PRIMARY KEY,
                LastName TEXT NOT NULL,
                FirstName TEXT,
                DateOfBirt TEXT)''')
