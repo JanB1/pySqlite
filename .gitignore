@@ -140,7 +140,7 @@ dmypy.json
 .idea/**/misc.xml
 .idea/**/modules.xml
 .idea/**/vcs.xml
-.idea/**/.iml
+.idea/**/*.iml
 .idea/**/inspectionProfiles
 .idea/**/dictionaries
 .idea/**/shelf
