@@ -1,16 +1,28 @@
-# This is a sample Python script.
+import sqlite3
 
-# Press Umschalt+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+con = sqlite3.connect('data/test.db')
 
+cur = con.cursor()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Strg+F8 to toggle the breakpoint.
+print(cur.connection == con)
 
+#cur.execute('''CREATE TABLE test (Id INT, Data TEXT)''')
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+cur.execute('''CREATE TABLE person (
+               Id INT NOT NULL PRIMARY KEY,
+               LastName TEXT NOT NULL,
+               FirstName TEXT,
+               DateOfBirt TEXT)''')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+cur.execute('''INSERT INTO person VALUES (
+               NULL,
+               "Baumann",
+               "Jan",
+               "1900-01-01")''')
+
+con.commit()
+
+for row in cur.execute('''SELECT * FROM person'''):
+    print(row)
+
+con.close()
