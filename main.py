@@ -1,6 +1,12 @@
 import sqlite3
+from pathlib import Path
 
-con = sqlite3.connect('data/test.db')
+Path('data/').mkdir(parents=True, exist_ok=True)
+
+try:
+    con = sqlite3.connect('data/test.db')
+except Error as e:
+    print(e)
 
 cur = con.cursor()
 
