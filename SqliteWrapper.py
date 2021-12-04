@@ -1,11 +1,12 @@
 import sqlite3
+import re
 from pathlib import Path
 full_database_path = 'data/test.db'
 
 
 def create_database(file_path):
     # file_path = ''
-    # file_name = ''
+    file_name = re.search('([^\/\\]+\.db)$)')
 
     if type(file_path) != str:
         raise ValueError
